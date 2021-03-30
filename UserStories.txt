@@ -2,6 +2,25 @@ User Stories Taschenrechner
 
 User-Story-Vorlage:	Als <Rolle/Anwendertyp> möchte ich <Ziel/Wunsch/Funktion>, um <Nutzen>
 
+Titel:	Softwarestruktur
+Story:	Als Entwickler möchte ich den Quellcode sauber strukturieren, um später einfach weitere Funktionalitäten hinzufügen zu können
+Akzeptanzkriterien:
+
+	- Das Single Level of Abstraction Prinzip wird eingehalten, oder eine Abweichung ist begründet und dokumentiert
+Status:
+	- offen
+
+
+Titel:	Subtrahieren
+Story:	Als Benutzer möchte ich zwei Zahlen eingeben, um deren Differenz berechnen zu lassen
+Akzeptanzkriterien:
+
+	- ganze Zahlen zwischen 0 und 10 können addiert werden
+	- Gleitkommazahlen zwischen -10,0 und 100,0 können subtrahiert werden
+Status:
+	- offen
+
+
 Titel:	Addieren
 Story:	Als Benutzer möchte ich zwei Zahlen eingeben, um deren Summe berechnen zu lassen
 Akzeptanzkriterien:
@@ -12,6 +31,7 @@ Status:
 	- implementiert
 	- getestet
 	- erledigt
+
 
 Titel:	Starten
 Story:	Als Benutzer möchte ich den Taschenrechner schnell aufrufen könne, um mein Resultat schnell zu bekommen

@@ -16,17 +16,31 @@ namespace Taschenrechner
             string zweiterSummand = Console.ReadLine();
 
             // Wandel Text in ganze Zahlen
-            float ersterSummandalsZahl = Convert.ToSingle(ersterSummand);
-            float zweiterSummandalsZahl = Convert.ToSingle(zweiterSummand);
+            double ersterSummandalsZahl = Convert.ToDouble(ersterSummand);
+            double zweiterSummandalsZahl = Convert.ToDouble(zweiterSummand);
 
             // Berechnung
-            float summe = ersterSummandalsZahl + zweiterSummandalsZahl;
+            double summe = Addiere(ersterSummandalsZahl, zweiterSummandalsZahl);
 
             // Ausgabe
-            Console.Write($"Das Ergebnis der Summe lautet {summe}");
-            Console.ReadLine();
+            Console.WriteLine($"Das Ergebnis der Summe lautet {summe}");
+            WarteaufBenutzerEIngabe();
 
-            
+        }
+
+        static double Addiere(double ersterSummand, double zweiterSummand)
+        {
+            double summe = ersterSummand + zweiterSummand;
+
+            return summe;
+        }
+        
+        
+
+        static void WarteaufBenutzerEIngabe()
+        {
+            Console.Write("Zum Beenden bitte Return drücken");
+            Console.ReadLine();
         }
     }
 }
