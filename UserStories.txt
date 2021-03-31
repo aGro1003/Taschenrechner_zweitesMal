@@ -8,7 +8,8 @@ Akzeptanzkriterien:
 
 	- Das Single Level of Abstraction Prinzip wird eingehalten, oder eine Abweichung ist begründet und dokumentiert
 Status:
-	- offen
+	- umgesetzt
+	- erledigt
 
 
 Titel:	Subtrahieren
@@ -18,7 +19,9 @@ Akzeptanzkriterien:
 	- ganze Zahlen zwischen 0 und 10 können addiert werden
 	- Gleitkommazahlen zwischen -10,0 und 100,0 können subtrahiert werden
 Status:
-	- offen
+	- implementiert
+	- getestet
+	- erledigt
 
 
 Titel:	Addieren
