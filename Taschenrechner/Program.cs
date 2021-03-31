@@ -8,12 +8,20 @@ namespace Taschenrechner
 {
     class Program
     {
+        // METHODE DEFINIEREN (in 7 Schritten)
+        // (optional) Modifizierer defienieren
+        // Datentyp des Rückgabewertes definieren
+        // Methodennamen definieren
+        // Rundeklammern an den Methodennamen anfügen
+        // Überlegen welche Parameter benötigt werden (optional diese definieren)
+        // Geschweifte Klammern einfügen
+        // Methode implementieren (Anweisungen in den Methodenrumpf schreiben)
+
+        
         static void Main(string[] args)
         {
-            Console.Write("Gib deinen ersten Summanden ein: ");
-            string ersterSummand = Console.ReadLine();
-            Console.Write("Gib deinen zweiten Summanden ein: ");
-            string zweiterSummand = Console.ReadLine();
+            string ersterSummand = HoleSummanden("Gib deinen ersten Summanden ein: ");
+            string zweiterSummand = HoleSummanden("Gib deinen zweiten Summanden ein: ");
 
             // Wandel Text in ganze Zahlen
             double ersterSummandalsZahl = Convert.ToDouble(ersterSummand);
@@ -26,6 +34,13 @@ namespace Taschenrechner
             Console.WriteLine($"Das Ergebnis der Summe lautet {summe}");
             WarteaufBenutzerEIngabe();
 
+        }
+        static string HoleSummanden(string ausgabeText)
+        {
+            Console.Write(ausgabeText);
+            string summand = Console.ReadLine();
+
+            return summand;
         }
 
         static double Addiere(double ersterSummand, double zweiterSummand)
