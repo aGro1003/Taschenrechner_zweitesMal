@@ -31,21 +31,28 @@ namespace Taschenrechner
 
             // Berechnung
             double resultat = 0;
-            if (operation == "+")
+
+            switch (operation)
             {
-                 resultat = Addiere(ersteZahl, zweiteZahl);
-                Console.WriteLine($"Das Ergebnis lautet {resultat}");
+                case "+":
+                    resultat = Addiere(ersteZahl, zweiteZahl);
+                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
+                    break;
+
+                case "-":
+                    resultat = Subtrahiere(ersteZahl, zweiteZahl);
+                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
+                    break;
+
+                case "/":
+                case "*":
+                    Console.WriteLine("Diese Operatoren werden bald hinzugefügt.");
+                    break;
+
+                default:
+                    Console.WriteLine("Dies war eine ungültige Auswahl");
+                    break;
             }
-            else if (operation == "-")
-            {
-                resultat = Subtrahiere(ersteZahl, zweiteZahl);
-                Console.WriteLine($"Das Ergebnis lautet {resultat}");
-            }
-            else
-            {
-                Console.WriteLine("Dies war eine ungültige Auswahl");
-            }
-            
 
             // Ausgabe
             HoleBenutzerEingabe("Zum Beenden bitte Return drücken");
