@@ -22,7 +22,7 @@ namespace Taschenrechner
         {
             string ersteZahlalsString = HoleBenutzerEingabe("Gib die erste Zahl ein: ");
             string zweiteZahlalsString = HoleBenutzerEingabe("Gib die zweite Zahl ein: ");
-            string operation = HoleBenutzerEingabe("Bitte gib die auszuführende Operation ein (+ oder -): ");
+            string operation = HoleBenutzerEingabe("Bitte gib die auszuführende Operation ein: ");
 
             // Wandel Text in Gleitkommazahlen
             // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist
@@ -45,8 +45,13 @@ namespace Taschenrechner
                     break;
 
                 case "/":
+                    resultat = Dividiere(ersteZahl, zweiteZahl);
+                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
+                    break;
+
                 case "*":
-                    Console.WriteLine("Diese Operatoren werden bald hinzugefügt.");
+                    resultat = Multipliziere(ersteZahl, zweiteZahl);
+                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
                     break;
 
                 default:
@@ -79,6 +84,21 @@ namespace Taschenrechner
 
             return differenz;
         }
+
+        static double Multipliziere(double ersterFaktor, double zweiterFaktor)
+        {
+            double produkt = ersterFaktor * zweiterFaktor;
+
+            return produkt;
+        }
+
+        static double Dividiere(double dividend, double divisor)
+        {
+            double quotient = dividend / divisor;
+
+            return quotient;
+        }
+
         
 
     }
