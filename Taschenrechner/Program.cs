@@ -30,45 +30,49 @@ namespace Taschenrechner
             double zweiteZahl = Convert.ToDouble(zweiteZahlalsString);
 
             // Berechnung
-            double resultat = 0;
+            double ergebnis;
+            ergebnis = Berechne(ersteZahl, zweiteZahl, operation);
 
-            switch (operation)
-            {
-                case "+":
-                    resultat = Addiere(ersteZahl, zweiteZahl);
-                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
-                    break;
-
-                case "-":
-                    resultat = Subtrahiere(ersteZahl, zweiteZahl);
-                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
-                    break;
-
-                case "/":
-                    resultat = Dividiere(ersteZahl, zweiteZahl);
-                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
-                    break;
-
-                case "*":
-                    resultat = Multipliziere(ersteZahl, zweiteZahl);
-                    Console.WriteLine($"Das Ergebnis lautet {resultat}");
-                    break;
-
-                default:
-                    Console.WriteLine("Dies war eine ungültige Auswahl");
-                    break;
-            }
 
             // Ausgabe
+            Ergebnisausgabe(ergebnis, operation);
             HoleBenutzerEingabe("Zum Beenden bitte Return drücken");
 
         }
         static string HoleBenutzerEingabe(string ausgabeText)
         {
             Console.Write(ausgabeText);
-            string summand = Console.ReadLine();
+            string zahl = Console.ReadLine();
 
-            return summand;
+            return zahl;
+        }
+
+        static void Ergebnisausgabe(double ergebnis, string opr)
+        {
+            
+
+            switch (opr)
+            {
+                case "+":
+                    Console.WriteLine($"Die Summe lautet: {ergebnis}");
+                    break;
+
+                case "-":
+                    Console.WriteLine($"Die Differenz lautet: {ergebnis}");
+                    break;
+
+                case "/":
+                    Console.WriteLine($"Der Quotient lautet: {ergebnis}");
+                    break;
+
+                case "*":
+                    Console.WriteLine($"Das Produkt lautet: {ergebnis}");
+                    break;
+                default:
+                    Console.WriteLine("Keine gültige Operation!");
+                    break;
+            }
+            
         }
 
         static double Addiere(double ersterSummand, double zweiterSummand)
@@ -87,19 +91,40 @@ namespace Taschenrechner
 
         static double Multipliziere(double ersterFaktor, double zweiterFaktor)
         {
-            double produkt = ersterFaktor * zweiterFaktor;
-
-            return produkt;
+            //verkürzte Form der Berechnung
+            return ersterFaktor * zweiterFaktor;
         }
 
         static double Dividiere(double dividend, double divisor)
         {
-            double quotient = dividend / divisor;
-
-            return quotient;
+            return dividend / divisor;
         }
 
-        
+        static double Berechne(double nummereins, double nummerzwei, string opr)
+        {
+            double resultat = 0;
+            switch (opr)
+            {
+                case "+":
+                    resultat = Addiere(nummereins, nummerzwei);
+                    break;
+
+                case "-":
+                    resultat = Subtrahiere(nummereins, nummerzwei);
+                    break;
+
+                case "/":
+                    resultat = Dividiere(nummereins, nummerzwei);
+                    break;
+
+                case "*":
+                    resultat = Multipliziere(nummereins, nummerzwei);
+                    break;
+
+            }
+            return resultat;
+        }
+
 
     }
 }
