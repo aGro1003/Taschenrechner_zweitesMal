@@ -20,9 +20,12 @@ namespace Taschenrechner
         
         static void Main(string[] args)
         {
-            string ersteZahlalsString = HoleBenutzerEingabe("Gib die erste Zahl ein: ");
-            string zweiteZahlalsString = HoleBenutzerEingabe("Gib die zweite Zahl ein: ");
-            string operation = HoleBenutzerEingabe("Bitte gib die auszuführende Operation ein: ");
+            RechnerModel model = new RechnerModel();
+            ConsoleView view = new ConsoleView(model);
+
+            string ersteZahlalsString = view.HoleBenutzerEingabe("Gib die erste Zahl ein: ");
+            string zweiteZahlalsString = view.HoleBenutzerEingabe("Gib die zweite Zahl ein: ");
+            string operation = view.HoleBenutzerEingabe("Bitte gib die auszuführende Operation ein: ");
 
             // Wandel Text in Gleitkommazahlen
             // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist
@@ -30,50 +33,16 @@ namespace Taschenrechner
             double zweiteZahl = Convert.ToDouble(zweiteZahlalsString);
 
             // Berechnung
-            RechnerModel model = new RechnerModel();
             model.Berechne(ersteZahl, zweiteZahl, operation);
 
 
             // Ausgabe
-            Ergebnisausgabe(model.Resultat, operation);
-            HoleBenutzerEingabe("Zum Beenden bitte Return drücken");
+            view.Ergebnisausgabe(operation);
+            view.HoleBenutzerEingabe("Zum Beenden bitte Return drücken");
 
         }
-        static string HoleBenutzerEingabe(string ausgabeText)
-        {
-            Console.Write(ausgabeText);
-            string zahl = Console.ReadLine();
 
-            return zahl;
-        }
-
-        static void Ergebnisausgabe(double ergebnis, string opr)
-        {
             
-
-            switch (opr)
-            {
-                case "+":
-                    Console.WriteLine($"Die Summe lautet: {ergebnis}");
-                    break;
-
-                case "-":
-                    Console.WriteLine($"Die Differenz lautet: {ergebnis}");
-                    break;
-
-                case "/":
-                    Console.WriteLine($"Der Quotient lautet: {ergebnis}");
-                    break;
-
-                case "*":
-                    Console.WriteLine($"Das Produkt lautet: {ergebnis}");
-                    break;
-                default:
-                    Console.WriteLine("Keine gültige Operation!");
-                    break;
-            }
-            
-        }
-
     }
+
 }

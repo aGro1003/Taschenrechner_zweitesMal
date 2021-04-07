@@ -10,6 +10,7 @@ namespace Taschenrechner
     {
         public double Resultat { get; private set; }
 
+        // Konstruktor; initialisiert Werte (in diesem Fall initialisieren wir das Resultat zum Anfang immer mit dem Wert 0)
         public RechnerModel()
         {
             Resultat = 0;
