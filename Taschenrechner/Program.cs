@@ -30,8 +30,8 @@ namespace Taschenrechner
             double zweiteZahl = Convert.ToDouble(zweiteZahlalsString);
 
             // Berechnung
-            double ergebnis;
-            ergebnis = Berechne(ersteZahl, zweiteZahl, operation);
+            RechnerModel model = new RechnerModel();
+            double ergebnis = model.Berechne(ersteZahl, zweiteZahl, operation);
 
 
             // Ausgabe
@@ -74,57 +74,6 @@ namespace Taschenrechner
             }
             
         }
-
-        static double Addiere(double ersterSummand, double zweiterSummand)
-        {
-            double summe = ersterSummand + zweiterSummand;
-
-            return summe;
-        }
-        
-        static double Subtrahiere(double minuend, double subtrahent)
-        {
-            double differenz = minuend - subtrahent;
-
-            return differenz;
-        }
-
-        static double Multipliziere(double ersterFaktor, double zweiterFaktor)
-        {
-            //verkürzte Form der Berechnung
-            return ersterFaktor * zweiterFaktor;
-        }
-
-        static double Dividiere(double dividend, double divisor)
-        {
-            return dividend / divisor;
-        }
-
-        static double Berechne(double nummereins, double nummerzwei, string opr)
-        {
-            double resultat = 0;
-            switch (opr)
-            {
-                case "+":
-                    resultat = Addiere(nummereins, nummerzwei);
-                    break;
-
-                case "-":
-                    resultat = Subtrahiere(nummereins, nummerzwei);
-                    break;
-
-                case "/":
-                    resultat = Dividiere(nummereins, nummerzwei);
-                    break;
-
-                case "*":
-                    resultat = Multipliziere(nummereins, nummerzwei);
-                    break;
-
-            }
-            return resultat;
-        }
-
 
     }
 }
