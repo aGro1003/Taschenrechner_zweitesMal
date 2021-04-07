@@ -31,11 +31,11 @@ namespace Taschenrechner
 
             // Berechnung
             RechnerModel model = new RechnerModel();
-            double ergebnis = model.Berechne(ersteZahl, zweiteZahl, operation);
+            model.Berechne(ersteZahl, zweiteZahl, operation);
 
 
             // Ausgabe
-            Ergebnisausgabe(ergebnis, operation);
+            Ergebnisausgabe(model.Resultat, operation);
             HoleBenutzerEingabe("Zum Beenden bitte Return drücken");
 
         }
