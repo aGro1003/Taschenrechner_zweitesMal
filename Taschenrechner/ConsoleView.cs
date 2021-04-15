@@ -13,9 +13,43 @@ namespace Taschenrechner
         public ConsoleView(RechnerModel model)
         {
             this.model = model;
+            BenutzerWillBeenden = false;
         }
 
-        public double HoleZahlvomBenutzer()
+        public bool BenutzerWillBeenden { get; private set; }
+
+        public void HoleEingabenFuerErsteBerechnungVomBenutzer()
+        {
+            model.ErsteZahl = HoleZahlvomBenutzer();
+            model.Operation = HoleOperatorvomBenutzer();
+            model.ZweiteZahl = HoleZahlvomBenutzer();
+        }
+
+        public void HoleEingabenFuerFortlaufendeBerechnung()
+        {
+
+            string eingabe = HoleNaechsteAktionVomBenutzer();
+
+            if (eingabe == "FERTIG")
+            {
+            
+                BenutzerWillBeenden = true;
+            }
+            else
+            {
+                model.ErsteZahl = model.Resultat;
+                model.ZweiteZahl = Convert.ToDouble(eingabe);
+            }
+
+        }
+
+        private string HoleNaechsteAktionVomBenutzer()
+        {
+            Console.Write("Bitte gib eine weitere Zahl ein (FERTIG zum Beenden): ");
+            return Console.ReadLine();
+        }
+
+        private double HoleZahlvomBenutzer()
         {
             string zahl;
             Console.Write("Bitte gib eine Zahl für die Berechnung ein: ");
@@ -24,17 +58,12 @@ namespace Taschenrechner
             return Convert.ToDouble(zahl);
         }
 
-        public string HoleOperatorvomBenutzer()
+        private string HoleOperatorvomBenutzer()
         {
             Console.Write("Bitte gib die auszuführende Operation ein (+, -, *, /): ");
             return Console.ReadLine();
         }
 
-        public void WarteAufEndeDurchBenutzer()
-        {
-            Console.Write("Zum Beenden bitte Return drücken");
-            Console.ReadLine();
-        }
 
         public string HoleBenutzerEingabe(string ausgabeText)
         {
@@ -44,11 +73,11 @@ namespace Taschenrechner
             return zahl;
         }
 
-        public void Ergebnisausgabe(string opr)
+        public void Ergebnisausgabe()
         {
 
 
-            switch (opr)
+            switch (model.Operation)
             {
                 case "+":
                     Console.WriteLine($"Die Summe lautet: {model.Resultat}");

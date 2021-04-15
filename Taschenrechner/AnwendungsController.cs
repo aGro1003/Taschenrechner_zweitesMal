@@ -19,17 +19,27 @@ namespace Taschenrechner
 
         public void Ausfuehren()
         {
-            double ersteZahl = view.HoleZahlvomBenutzer();
-            string operation = view.HoleOperatorvomBenutzer();
-            double zweiteZahl = view.HoleZahlvomBenutzer();
+            view.HoleEingabenFuerErsteBerechnungVomBenutzer();
 
-            // Berechnung
-            model.Berechne(ersteZahl, zweiteZahl, operation);
+            model.Berechne();
+
+            view.Ergebnisausgabe();
+            view.HoleEingabenFuerFortlaufendeBerechnung();
 
 
-            // Ausgabe
-            view.Ergebnisausgabe(operation);
-            view.WarteAufEndeDurchBenutzer();
+            while (!view.BenutzerWillBeenden)
+            {
+
+                // Berechnung
+                model.Berechne();
+
+
+                // Ausgabe
+                view.Ergebnisausgabe();
+                view.HoleEingabenFuerFortlaufendeBerechnung();
+                
+            }
+
         }
     }
 }

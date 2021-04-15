@@ -9,30 +9,35 @@ namespace Taschenrechner
     class RechnerModel
     {
         public double Resultat { get; private set; }
+        public string Operation { get; set; }
+        public double ErsteZahl { get; set; }
+        public double ZweiteZahl { get; set; }
 
         // Konstruktor; initialisiert Werte (in diesem Fall initialisieren wir das Resultat zum Anfang immer mit dem Wert 0)
         public RechnerModel()
         {
-            Resultat = 0;
+            
+            Operation = "unbekannt";
         }
-        public void Berechne(double nummereins, double nummerzwei, string opr)
+        public void Berechne()
         {
-            switch (opr)
+            
+            switch (Operation)
             {
                 case "+":
-                    Resultat = Addiere(nummereins, nummerzwei);
+                    Resultat = Addiere(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "-":
-                    Resultat = Subtrahiere(nummereins, nummerzwei);
+                    Resultat = Subtrahiere(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "/":
-                    Resultat = Dividiere(nummereins, nummerzwei);
+                    Resultat = Dividiere(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "*":
-                    Resultat = Multipliziere(nummereins, nummerzwei);
+                    Resultat = Multipliziere(ErsteZahl, ZweiteZahl);
                     break;
 
             }
